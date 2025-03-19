@@ -5,37 +5,185 @@ body {
 /* 👇👇👇 Paste the styles of your Fancy Robot from the "Position it right" assignment here 👇👇👇 */
 
 .robot-container {
+    width:500px;
+    height:500px;
+    margin:0 auto;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-250px;
+    margin-top:-250px;
 }
 
 .robot-face-shape {
+    width: 500px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid #FE4365;
+    background: radial-gradient(circle at 40% 30%,#0000 4%,57%,#000 90%) #FE4365;
 }
 
 .robot-eye-left {
+    position: absolute;
+    top: 140px;
+    right: 90px;
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: 
+    radial-gradient(circle at 40% 30%,#0000 4%,57%,#000 90%) 
+    #0740b9;
+    opacity: 0.22;
+    animation: colors 2s infinite  ease-in-out;
 }
 
 .robot-eye-right {
+    position: absolute;
+    top: 140px;
+    left: 90px;
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 30%,#0000 4%,57%,#000 90%) 
+    #0740b9; 
+    animation: opacity 2s infinite;
 }
 
 .robot-ear-left {
+    position: absolute;
+    top: 10px;
+    left: -110px;
+    --r:20px; /* border radius */
+  
+    width: 180px;
+    aspect-ratio: 1/cos(30deg);
+    --_g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
+    -webkit-mask:
+      conic-gradient(from -30deg at 50% calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
+       0 100%/100% calc(100% - 3*var(--r)/2) no-repeat,
+      radial-gradient(var(--r) at 50% calc(2*var(--r)),#000 98%,#0000 101%),
+      radial-gradient(var(--r) at left  var(--_g)),
+      radial-gradient(var(--r) at right var(--_g));
+    clip-path: polygon(50% 0,100% 100%,0 100%);
+    background: linear-gradient(45deg,#FA6900,#C02942);
+    animation: rotate 2s infinite;
 }
 
 .robot-ear-right {
+    position: absolute;
+    top: 10px;
+    right: -110px;
+    --r:20px; /* border radius */
+  
+    width: 180px;
+    aspect-ratio: 1/cos(30deg);
+    --_g:calc(tan(60deg)*var(--r)) bottom var(--r),#000 98%,#0000 101%;
+    -webkit-mask:
+      conic-gradient(from -30deg at 50% calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
+       0 100%/100% calc(100% - 3*var(--r)/2) no-repeat,
+      radial-gradient(var(--r) at 50% calc(2*var(--r)),#000 98%,#0000 101%),
+      radial-gradient(var(--r) at left  var(--_g)),
+      radial-gradient(var(--r) at right var(--_g));
+    clip-path: polygon(50% 0,100% 100%,0 100%);
+    background: linear-gradient(45deg,#FA6900,#C02942);
+    animation: sizing 2s infinite;
 }
 
 .robot-nose {
+  position: absolute;
+    top: 200px;
+    left: 160px;
+    width: 160px;  
+    aspect-ratio: 1;
+    background: #F8CA00;
+    clip-path: polygon(50% 0,
+    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+   ); 
+   animation: move 3s infinite ease;
 }
 
 .robot-nose:before {
+  display: none;
 }
 
 .robot-nose:after {
+  display: none;
 }
 
 .robot-teeth {
+  position: absolute;
+    top: 350px;
+    left: 140px;
+    --c: 85; /* control the curvature (a percentage value without unit bigger than 50%)*/
+  width: 15.625rem;
+  height: 5.625rem;
+  aspect-ratio: 3/2;
+  background-image:  url('https://fastly.picsum.photos/id/721/2000/1333.jpg?hmac=5eQ3z71rOUtzl06Kp6IR8-ay65mIztUpp4X6_6WGdTc');
+  border: 3px solid red;
+  mask: radial-gradient(calc(var(--c)*1%) 100% at 50% calc(-100%*cos(asin(50/var(--c)))),#0000 calc(100% - 1px),#000);
+  clip-path: ellipse(calc(var(--c)*1%) 100% at top);
+  animation: close 2s infinite ease-in-out;
 }
 
 .robot-tooth {
+  position: absolute;
+    background-color: rgb(98, 255, 0);
+    width: 25%;
+    height: 35%;
+    left: 29%;
+    border: 2px solid rgb(98, 255, 0);
+    border-radius: 9px 7px 8px 11px;
+    animation: hide 2s infinite ease-in-out;
 }
 
 .robot-hair-style {
+  position: absolute;
+    top: -10px;
+    left: 30%;
+    width: 180px;
+    height: 100px;
+    border-radius: 30% 100% 0% 100% / 0% 100% 0% 100%;
+    border: 1px solid black;
+    background: black;
 }
+
+.robot-hair-style:hover {
+  animation: lift 2s infinite ease;
+}
+
+.robot-hair-one {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 180px;
+    height: 100px;
+    border-radius: 30% 100% 0% 100% / 0% 100% 0% 100%;
+    border: 1px solid black;
+    background: black;
+}
+
+.robot-hair-two {
+    position: absolute;
+    top: -5px;
+    left: 65%;
+    width: 100px;
+    height: 100px;
+    border-radius: 30% 100% 0% 100% / 0% 100% 0% 100%;
+    border: 1px solid black;
+    background: black;
+}
+
+.robot-hair-three {
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    width: 100px;
+    height: 100px;
+    border-radius: 30% 100% 0% 100% / 0% 100% 0% 100%;
+    border: 1px solid black;
+    background: black;
+}
+
